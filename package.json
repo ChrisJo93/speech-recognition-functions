@@ -1,0 +1,23 @@
+{
+  "name": "speech-recognition-functions",
+  "version": "1.0.0",
+  "description": "Speech Recognition Practice",
+  "main": "script.js",
+  "devDependencies": {
+    "browser-sync": "^2.26.14"
+  },
+  "scripts": {
+    "start": "browser-sync start --directory --server --files \"*.css, *.html, *.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisJo93/speech-recognition-functions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisJo93/speech-recognition-functions/issues"
+  },
+  "homepage": "https://github.com/ChrisJo93/speech-recognition-functions#readme"
+}
