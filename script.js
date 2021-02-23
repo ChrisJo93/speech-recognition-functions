@@ -14,9 +14,7 @@ recognition.addEventListener('result', (e) => {
     .map((result) => result.transcript)
     .join('');
 
-  transcript.classList.add('highlight');
   p.textContent = transcript;
-  p.classList.add('highlight');
 
   console.log(transcript);
 
@@ -38,4 +36,5 @@ function highlightWords() {
 // p.forEach((p) => p.addEventListener('mouseenter', highlightWords));
 
 recognition.addEventListener('end', recognition.start);
+
 recognition.start();
