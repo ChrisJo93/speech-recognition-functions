@@ -14,7 +14,10 @@ recognition.addEventListener('result', (e) => {
     .map((result) => result.transcript)
     .join('');
 
+  transcript.classList.add('highlight');
   p.textContent = transcript;
+  p.classList.add('highlight');
+
   console.log(transcript);
 
   if (e.results[0].isFinal) {
@@ -27,6 +30,12 @@ recognition.addEventListener('result', (e) => {
     console.log('this is the coolest shit omg.');
   }
 });
+
+function highlightWords() {
+  console.log(this);
+}
+
+// p.forEach((p) => p.addEventListener('mouseenter', highlightWords));
 
 recognition.addEventListener('end', recognition.start);
 recognition.start();

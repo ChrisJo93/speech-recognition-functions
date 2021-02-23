@@ -1,5 +1,6 @@
 body {
   background: black;
+  margin: 0;
 }
 
 .words {
@@ -20,4 +21,17 @@ body {
   background-size: 100% 3rem;
   position: relative;
   line-height: 3rem;
+}
+
+.highlight {
+  transition: all 0.2s;
+  border-bottom: 2px solid white;
+  position: absolute;
+  top: 0;
+  background: blue;
+  left: 0;
+  z-index: -1;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
