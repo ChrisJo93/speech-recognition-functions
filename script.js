@@ -28,13 +28,14 @@ recognition.addEventListener('result', (e) => {
 });
 
 function getDate(transcript) {
-  const conditions = ['cyrus date', 'cyrus what day is it', 'cyrus get date'];
+  //requires "cyrus" name. Providing different options to call date
+  const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
   //running function if any of these phrases are called
   if (conditions.some((condition) => transcript.includes(condition))) {
     console.log(new Date().toString(), 'string');
+    p.textContent = new Date().toString();
+    words.appendChild(p);
   }
-  date.textContent = new Date().toString();
-  words.appendChild(date);
 }
 
 function getWeather(transcript) {
