@@ -28,23 +28,14 @@ recognition.addEventListener('result', (e) => {
 });
 
 function getDate(transcript) {
-  const conditions = ['date', 'what day is it', 'get date'];
+  const conditions = ['cyrus date', 'cyrus what day is it', 'cyrus get date'];
   //running function if any of these phrases are called
   if (conditions.some((condition) => transcript.includes(condition))) {
-    console.log('that worked');
+    console.log(new Date().toString(), 'string');
   }
-  // if (transcript.includes('Cyrus get date')) {
-  //   console.log(new Date().toString(), 'string');
-  // }
+  date.textContent = new Date().toString();
+  words.appendChild(date);
 }
-
-// function contains(target, pattern){
-//   var value = 0;
-//   pattern.forEach(function(word){
-//     value = value + target.includes(word);
-//   });
-//   return (value === 1)
-// }
 
 function getWeather(transcript) {
   //need weather api to fetch from
