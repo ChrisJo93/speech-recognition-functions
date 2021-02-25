@@ -1,13 +1,15 @@
 {
   "name": "speech-recognition-functions",
+  "proxy": "http://localhost:5000",
   "version": "1.0.0",
   "description": "Speech Recognition Practice",
   "main": "script.js",
   "devDependencies": {
-    "browser-sync": "^2.26.14"
+    "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "browser-sync start --directory --server --files \"*.css, *.html, *.js\"",
+    "start": "node script.js",
+    "server": "nodemon --watch server server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +23,8 @@
   },
   "homepage": "https://github.com/ChrisJo93/speech-recognition-functions#readme",
   "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
