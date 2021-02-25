@@ -1,7 +1,9 @@
-window.speechRecognition =
-  window.speechRecognition || window.webkitSpeechRecognition;
+// window.speechRecognition =
+//   window.speechRecognition || window.webkitSpeechRecognition;
 
-const recognition = new webkitSpeechRecognition();
+global.SpeechRecognition =
+  global.SpeechRecognition || global.webkitSpeechRecognition;
+const recognition = new global.SpeechRecognition();
 recognition.interimResults = true;
 
 let p = document.createElement('p');

@@ -5,6 +5,7 @@
   "description": "Speech Recognition Practice",
   "main": "script.js",
   "devDependencies": {
+    "browser-sync": "^2.26.14",
     "nodemon": "^2.0.7"
   },
   "scripts": {
