@@ -23,16 +23,31 @@ recognition.addEventListener('result', (e) => {
   if (e.results[0].isFinal) {
     p = document.createElement('p');
   }
+
+  words.appendChild(p);
 });
 
 function getDate(transcript) {
-  if (transcript.includes('date')) {
-    date.appendChild();
-    console.log(new Date().toString(), 'string');
+  const conditions = ['date', 'what day is it', 'get date'];
+  //running function if any of these phrases are called
+  if (conditions.some((condition) => transcript.includes(condition))) {
+    console.log('that worked');
   }
+  // if (transcript.includes('Cyrus get date')) {
+  //   console.log(new Date().toString(), 'string');
+  // }
 }
 
+// function contains(target, pattern){
+//   var value = 0;
+//   pattern.forEach(function(word){
+//     value = value + target.includes(word);
+//   });
+//   return (value === 1)
+// }
+
 function getWeather(transcript) {
+  //need weather api to fetch from
   if (transcript.includes('weather')) {
     console.log('fetching weather api');
   }
