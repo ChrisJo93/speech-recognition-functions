@@ -5,6 +5,7 @@ const recognition = new webkitSpeechRecognition();
 recognition.interimResults = true;
 
 let p = document.createElement('p');
+let date = document.createElement('div');
 const words = document.querySelector('.words');
 words.appendChild(p);
 
@@ -16,24 +17,26 @@ recognition.addEventListener('result', (e) => {
 
   p.textContent = transcript;
 
-  console.log(transcript);
+  getDate(transcript);
+  getWeather(transcript);
 
   if (e.results[0].isFinal) {
     p = document.createElement('p');
-
-    words.appendChild(p);
-  }
-  console.log(transcript);
-  if (transcript.includes('cool')) {
-    console.log('this is the coolest shit omg.');
   }
 });
 
-function highlightWords() {
-  console.log(this);
+function getDate(transcript) {
+  if (transcript.includes('date')) {
+    date.appendChild();
+    console.log(new Date().toString(), 'string');
+  }
 }
 
-// p.forEach((p) => p.addEventListener('mouseenter', highlightWords));
+function getWeather(transcript) {
+  if (transcript.includes('weather')) {
+    console.log('fetching weather api');
+  }
+}
 
 recognition.addEventListener('end', recognition.start);
 
