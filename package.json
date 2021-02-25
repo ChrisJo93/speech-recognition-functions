@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ChrisJo93/speech-recognition-functions/issues"
   },
-  "homepage": "https://github.com/ChrisJo93/speech-recognition-functions#readme"
+  "homepage": "https://github.com/ChrisJo93/speech-recognition-functions#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
