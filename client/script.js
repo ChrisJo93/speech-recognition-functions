@@ -42,7 +42,14 @@ function getDate(transcript) {
 function getWeather(transcript) {
   //need weather api to fetch from
   if (transcript.includes('weather')) {
-    console.log('fetching weather api');
+    axios
+      .get('/')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(err);
+      });
   }
 }
 
