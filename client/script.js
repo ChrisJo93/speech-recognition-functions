@@ -33,30 +33,29 @@ recognition.addEventListener('result', (e) => {
   console.log('call 1');
 });
 
-function getDate(transcript) {
-  //requires "cyrus" name. Providing different options to call date
-  const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
-  //running function if any of these phrases are called
-  if (conditions.some((condition) => transcript.includes(condition))) {
-    console.log(new Date().toString(), 'string');
-    p.textContent = new Date().toString();
-    words.appendChild(p);
-  }
+function getDate(e) {
+  // //requires "cyrus" name. Providing different options to call date
+  // const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
+  // //running function if any of these phrases are called
+  // if (conditions.some((condition) => transcript.includes(condition))) {
+  // }
+  console.log(new Date().toString(), 'string');
+  p.textContent = new Date().toString();
+
   console.log('call 2');
 }
 
-function getWeather(transcript) {
-  if (transcript.includes('weather')) {
-    axios
-      .get('/')
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(err);
-      });
-  }
+function getWeather(e) {
   console.log('call 3');
+
+  axios
+    .get('/')
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(err);
+    });
 }
 
 recognition.addEventListener('end', recognition.start);
