@@ -18,8 +18,12 @@ recognition.addEventListener('result', (e) => {
 
   p.textContent = transcript;
 
-  getDate(transcript);
-  getWeather(transcript);
+  if (transcript.includes('date')) {
+    getDate(e);
+  }
+  if (transcript.includes('weather')) {
+    getWeather(e);
+  }
 
   if (e.results[0].isFinal) {
     p = document.createElement('p');
