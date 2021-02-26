@@ -9,8 +9,8 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon --watch server server/server.js",
+    "start": "node server.js",
+    "server": "nodemon --watch server server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
