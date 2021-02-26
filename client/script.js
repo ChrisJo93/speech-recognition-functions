@@ -26,6 +26,7 @@ recognition.addEventListener('result', (e) => {
   }
 
   words.appendChild(p);
+  console.log('call 1');
 });
 
 function getDate(transcript) {
@@ -37,20 +38,21 @@ function getDate(transcript) {
     p.textContent = new Date().toString();
     words.appendChild(p);
   }
+  console.log('call 2');
 }
 
 function getWeather(transcript) {
-  //need weather api to fetch from
   if (transcript.includes('weather')) {
     axios
       .get('/')
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(err);
       });
   }
+  console.log('call 3');
 }
 
 recognition.addEventListener('end', recognition.start);
