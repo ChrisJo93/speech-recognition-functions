@@ -54,10 +54,16 @@ function getWeather(e) {
   e.stopPropagation();
   console.log('call 3');
 
+  const config = {
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
+    },
+  };
   axios
-    .get('/')
+    .get('/', config)
     .then((response) => {
-      console.log(response.data);
+      console.log(response);
     })
     .catch((error) => {
       console.log(err);
