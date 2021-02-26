@@ -1,52 +1,51 @@
-// window.speechRecognition =
-//   window.speechRecognition || window.webkitSpeechRecognition;
+window.SpeechRecognition =
+  //set variable to SpeechReg or webkitSpeech depending on browser
+  window.SpeechRecognition || window.webkitSpeechRecognition;
 
-// // global.SpeechRecognition =
-// //   global.SpeechRecognition || global.webkitSpeechRecognition;
-// const recognition = new webkitSpeechRecognition();
-// recognition.interimResults = true;
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
 
-// let p = document.createElement('p');
-// let date = document.createElement('div');
-// const words = document.querySelector('.words');
-// words.appendChild(p);
+let p = document.createElement('p');
+let date = document.createElement('div');
+const words = document.querySelector('.words');
+words.appendChild(p);
 
-// recognition.addEventListener('result', (e) => {
-//   const transcript = Array.from(e.results)
-//     .map((result) => result[0])
-//     .map((result) => result.transcript)
-//     .join('');
+recognition.addEventListener('result', (e) => {
+  const transcript = Array.from(e.results)
+    .map((result) => result[0])
+    .map((result) => result.transcript)
+    .join('');
 
-//   p.textContent = transcript;
+  p.textContent = transcript;
 
-//   getDate(transcript);
-//   getWeather(transcript);
+  getDate(transcript);
+  getWeather(transcript);
 
-//   if (e.results[0].isFinal) {
-//     p = document.createElement('p');
-//   }
+  if (e.results[0].isFinal) {
+    p = document.createElement('p');
+  }
 
-//   words.appendChild(p);
-// });
+  words.appendChild(p);
+});
 
-// function getDate(transcript) {
-//   //requires "cyrus" name. Providing different options to call date
-//   const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
-//   //running function if any of these phrases are called
-//   if (conditions.some((condition) => transcript.includes(condition))) {
-//     console.log(new Date().toString(), 'string');
-//     p.textContent = new Date().toString();
-//     words.appendChild(p);
-//   }
-// }
+function getDate(transcript) {
+  //requires "cyrus" name. Providing different options to call date
+  const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
+  //running function if any of these phrases are called
+  if (conditions.some((condition) => transcript.includes(condition))) {
+    console.log(new Date().toString(), 'string');
+    p.textContent = new Date().toString();
+    words.appendChild(p);
+  }
+}
 
-// function getWeather(transcript) {
-//   //need weather api to fetch from
-//   if (transcript.includes('weather')) {
-//     console.log('fetching weather api');
-//   }
-// }
+function getWeather(transcript) {
+  //need weather api to fetch from
+  if (transcript.includes('weather')) {
+    console.log('fetching weather api');
+  }
+}
 
-// recognition.addEventListener('end', recognition.start);
+recognition.addEventListener('end', recognition.start);
 
-// recognition.start();
+recognition.start();
