@@ -19,16 +19,19 @@ recognition.addEventListener('result', (e) => {
 
   p.textContent = transcript;
 
-  if (transcript.includes('date')) {
+  //checking isFinal. Prevents function running multiple times
+  if (transcript.includes('date') && e.results[0].isFinal) {
+    //call date
     getDate(e);
   }
-  if (transcript.includes('weather')) {
+  if (transcript.includes('weather') && e.results[0].isFinal) {
+    //call weather
     getWeather(e);
   }
 
   if (e.results[0].isFinal) {
     p = document.createElement('p');
-    console.log(p);
+    console.log(transcript);
   }
 
   words.appendChild(p);
