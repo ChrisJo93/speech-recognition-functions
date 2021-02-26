@@ -28,10 +28,10 @@ recognition.addEventListener('result', (e) => {
 
   if (e.results[0].isFinal) {
     p = document.createElement('p');
+    console.log(p);
   }
 
   words.appendChild(p);
-  console.log('call 1');
 });
 
 function getDate(e) {
