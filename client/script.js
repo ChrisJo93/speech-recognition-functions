@@ -11,6 +11,7 @@ const words = document.querySelector('.words');
 words.appendChild(p);
 
 recognition.addEventListener('result', (e) => {
+  e.stopPropagation();
   const transcript = Array.from(e.results)
     .map((result) => result[0])
     .map((result) => result.transcript)
@@ -34,6 +35,7 @@ recognition.addEventListener('result', (e) => {
 });
 
 function getDate(e) {
+  e.stopPropagation();
   // //requires "cyrus" name. Providing different options to call date
   // const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
   // //running function if any of these phrases are called
@@ -46,6 +48,7 @@ function getDate(e) {
 }
 
 function getWeather(e) {
+  e.stopPropagation();
   console.log('call 3');
 
   axios
