@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('server/public'));
 
 app.get('/test', (req, res) => {
-  res.send('You made it champ');
+  res.send('success. Time to build api call');
 });
 
 app.listen(PORT, () => {
