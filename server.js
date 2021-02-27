@@ -1,14 +1,17 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
+
+const bodyParser = require('body-parser');
 require('dotenv').config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('client'));
+app.get('/', (req, res) => {
+  res.send('You made it champ');
+});
 
-const array = ['list', 'of', 'words'];
+app.use(express.static('build'));
 
 const PORT = process.env.PORT || 5000;
 
