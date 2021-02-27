@@ -8,33 +8,32 @@ require('dotenv').config();
 
 // Json Middleware
 const bodyParser = require('body-parser');
-const { default: axios } = require('axios');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // axios import
-const axios = require('axios');
+const { default: axios } = require('axios');
 
 // Serve public folder
 app.use(express.static('server/public'));
 
-// Routes
-app.get('/test', (req, res) => {
-  res.send('success. Time to build api call');
-});
-
-let weather = {};
-
-app.get('weather', (req, res) => {
+function getWeather() {
   axios
-    .get('')
+    .get(
+      `api.openweathermap.org/data/2.5/weather?q=Shreveport,USA&appid=${process.env.WEATHERAPI}`
+    )
     .then((response) => {
-      let weather = response.data;
-      res.send(weather);
+      console.log('no fucking way');
     })
     .catch((error) => {
-      console.log(error);
+      console.log('I errroed');
     });
+}
+
+// Routes
+
+app.get('/weather', (req, res) => {
+  const weather = getWeather();
   res.send(weather);
 });
 

@@ -49,9 +49,8 @@ function getDate() {
 
 function getWeather() {
   axios
-    .get('/test')
+    .get('/weather')
     .then((response) => {
-      console.log(response.data);
       console.log(response);
     })
     .catch((error) => {
