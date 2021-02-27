@@ -11,6 +11,7 @@ const words = document.querySelector('.words');
 words.appendChild(p);
 
 recognition.addEventListener('result', (e) => {
+  //looping through all words in transcript
   const transcript = Array.from(e.results)
     .map((result) => result[0])
     .map((result) => result.transcript)
@@ -28,6 +29,11 @@ recognition.addEventListener('result', (e) => {
     getWeather();
   }
 
+  if (transcript.includes('location') && e.results[0].isFinal) {
+    //call location
+    getLocation();
+  }
+
   if (e.results[0].isFinal) {
     p = document.createElement('p');
     console.log(transcript);
@@ -37,15 +43,8 @@ recognition.addEventListener('result', (e) => {
 });
 
 function getDate() {
-  // //requires "cyrus" name. Providing different options to call date
-  // const conditions = ['date', 'cyrus what day is it', 'cyrus get date'];
-  // //running function if any of these phrases are called
-  // if (conditions.some((condition) => transcript.includes(condition))) {
-  // }
   console.log(new Date().toString(), 'string');
   p.textContent = new Date().toString();
-
-  console.log('call 2');
 }
 
 function getWeather() {
@@ -58,6 +57,11 @@ function getWeather() {
     .catch((error) => {
       console.log(error);
     });
+}
+
+function getLocation() {
+  //need to implement geolocation. Data will be sent to weather api also
+  console.log(`I'm here`);
 }
 
 recognition.addEventListener('end', recognition.start);
