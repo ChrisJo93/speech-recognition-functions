@@ -21,11 +21,11 @@ recognition.addEventListener('result', (e) => {
   //checking isFinal. Prevents function running multiple times
   if (transcript.includes('date') && e.results[0].isFinal) {
     //call date
-    getDate(e);
+    getDate();
   }
   if (transcript.includes('weather') && e.results[0].isFinal) {
     //call weather
-    getWeather(e);
+    getWeather();
   }
 
   if (e.results[0].isFinal) {
@@ -50,7 +50,7 @@ function getDate() {
 
 function getWeather() {
   axios
-    .get('/')
+    .get('/test')
     .then((response) => {
       console.log(response.data);
       console.log(response);

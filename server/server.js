@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('server/public'));
 
-app.get('/', (req, res) => {
+app.get('/test', (req, res) => {
   res.send('You made it champ');
 });
 
