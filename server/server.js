@@ -29,7 +29,6 @@ function getWeather() {
       console.log('I errroed');
     });
 }
-
 // Routes
 
 app.get('/weather', (req, res) => {
