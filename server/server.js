@@ -20,17 +20,17 @@ app.use(express.static('server/public'));
 function getWeather() {
   axios
     .get(
-      `api.openweathermap.org/data/2.5/weather?q=Shreveport,USA&appid=${process.env.WEATHERAPI}`
+      `api.openweathermap.org/data/2.5/weather?q=Shreveport&appid=${process.env.WEATHERAPI}`
     )
     .then((response) => {
       console.log('no fucking way');
     })
     .catch((error) => {
-      console.log('I errroed');
+      console.log(error);
     });
 }
-// Routes
 
+// Routes
 app.get('/weather', (req, res) => {
   const weather = getWeather();
   res.send(weather);
