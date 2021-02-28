@@ -23,7 +23,7 @@ function getWeather() {
       `api.openweathermap.org/data/2.5/weather?q=Shreveport&appid=${process.env.WEATHERAPI}`
     )
     .then((response) => {
-      console.log('no fucking way');
+      console.log(response.data);
     })
     .catch((error) => {
       console.log(error);
