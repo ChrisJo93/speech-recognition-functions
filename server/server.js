@@ -20,7 +20,7 @@ app.use(express.static('server/public'));
 function getWeather() {
   axios
     .get(
-      `api.openweathermap.org/data/2.5/weather?q=Shreveport&appid=${process.env.WEATHERAPI}`
+      `api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.WEATHERAPI}`
     )
     .then((response) => {
       console.log(response.data);
