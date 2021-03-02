@@ -51,7 +51,21 @@ function getWeather() {
   axios
     .get('/weather')
     .then((response) => {
-      console.log(response);
+      getWeatherData(response.data);
+      console.log({ response });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getWeatherData(key) {
+  return axios
+    .get(
+      `http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${key}`
+    )
+    .then((response) => {
+      console.log(response.data);
     })
     .catch((error) => {
       console.log(error);
