@@ -48,9 +48,11 @@ function getDate() {
 }
 
 function getWeather() {
+  //asking server for weather key. Defensive code.
   axios
     .get('/weather')
     .then((response) => {
+      //running actual api call with weather key.
       getWeatherData(response.data);
       console.log({ response });
     })
@@ -59,10 +61,12 @@ function getWeather() {
     });
 }
 
+let city = 'Shreveport';
 function getWeatherData(key) {
+  //returning response from weather api call.
   return axios
     .get(
-      `http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${key}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${key}`
     )
     .then((response) => {
       console.log(response.data);
