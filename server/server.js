@@ -17,23 +17,9 @@ const { default: axios } = require('axios');
 // Serve public folder
 app.use(express.static('server/public'));
 
-function getWeather() {
-  axios
-    .get(
-      `api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.WEATHERAPI}`
-    )
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-
 // Routes
 app.get('/weather', (req, res) => {
-  const weather = getWeather();
-  res.send(weather);
+  res.send(process.env.WEATHERAPI);
 });
 
 // Start Server
