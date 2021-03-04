@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/ChrisJo93/speech-recognition-functions#readme",
   "dependencies": {
+    "@dogstudio/highway": "^2.2.1",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "gsap": "^3.6.0"
   }
 }
