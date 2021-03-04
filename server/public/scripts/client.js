@@ -48,6 +48,10 @@ function getDate() {
   p.textContent = new Date().toString();
 }
 
+function weatherRemover() {
+  weatherBox.classList.remove('weatherBoxActive');
+  weatherBox.classList.add('weatherBox');
+}
 function getWeather() {
   //asking server for weather key. Defensive code.
   axios
@@ -60,9 +64,10 @@ function getWeather() {
     .catch((error) => {
       console.log(error);
     });
-  weatherBox.append('movement');
+  weatherBox.classList.remove('weatherBox');
+  weatherBox.classList.add('weatherBoxActive');
+  setTimeout(weatherRemover, 10000);
 }
-
 let city = 'Shreveport';
 function getWeatherData(key) {
   //returning response from weather api call.

@@ -55,13 +55,14 @@ p {
 
 .weatherBox {
   background-color: yellow;
+  transition: all 1;
 }
 
-.weatherBox:active {
+.weatherBoxActive {
   background-color: white;
   width: 30%;
   padding: 15px;
   position: absolute;
   left: 5%;
-  transition: all 0.2;
+  transition: all 1;
 }
