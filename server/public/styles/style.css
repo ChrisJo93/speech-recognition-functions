@@ -56,6 +56,7 @@ p {
 .weatherBox {
   background-color: yellow;
   transition: all 1;
+  opacity: 0;
 }
 
 .weatherBoxActive {
@@ -65,4 +66,5 @@ p {
   position: absolute;
   left: 5%;
   transition: all 1;
+  opacity: 1;
 }

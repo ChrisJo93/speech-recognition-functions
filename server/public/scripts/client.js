@@ -68,6 +68,7 @@ function getWeather() {
   weatherBox.classList.add('weatherBoxActive');
   setTimeout(weatherRemover, 10000);
 }
+
 let city = 'Shreveport';
 function getWeatherData(key) {
   //returning response from weather api call.
