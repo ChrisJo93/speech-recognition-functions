@@ -1,6 +1,12 @@
 body {
-  background: black;
-  margin: 0;
+  background: #ffc600;
+  font-family: 'helvetica neue';
+  font-weight: 200;
+  font-size: 20px;
+}
+
+p {
+  margin: 0 0 3rem;
 }
 
 .words {
@@ -23,6 +29,17 @@ body {
   line-height: 3rem;
 }
 
+.words:before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  top: 0;
+  left: 30px;
+  bottom: 0;
+  border: 1px solid;
+  border-color: transparent #efe4e4;
+}
+
 .highlight {
   transition: all 0.2s;
   border-bottom: 2px solid white;
@@ -36,7 +53,18 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.weatherBox {
+.weatherBox:before {
+  content: '';
   background-color: white;
-  transition: all 0.2s;
+  width: 30%;
+  padding: 15px;
+  position: absolute;
+  left: 5%;
+  opacity: 0;
+  transition: all 0.2;
+}
+
+.weatherBox {
+  opacity: 5;
+  content: 'Here\s the weather';
 }

@@ -8,6 +8,7 @@ recognition.interimResults = true;
 let p = document.createElement('p');
 let date = document.createElement('div');
 const words = document.querySelector('.words');
+const weatherBox = document.querySelector('.weatherBox');
 words.appendChild(p);
 
 recognition.addEventListener('result', (e) => {
