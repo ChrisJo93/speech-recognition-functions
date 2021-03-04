@@ -6,9 +6,9 @@ const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 
 let p = document.createElement('p');
-let date = document.createElement('div');
 const words = document.querySelector('.words');
 const weatherBox = document.querySelector('.weatherBox');
+
 words.appendChild(p);
 
 recognition.addEventListener('result', (e) => {
@@ -60,6 +60,7 @@ function getWeather() {
     .catch((error) => {
       console.log(error);
     });
+  weatherBox.append('movement');
 }
 
 let city = 'Shreveport';
