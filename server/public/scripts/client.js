@@ -9,8 +9,6 @@ let p = document.createElement('p');
 const words = document.querySelector('.words');
 const weatherBox = document.querySelector('.weatherBox');
 
-words.appendChild(p);
-
 recognition.addEventListener('result', (e) => {
   //looping through all words in transcript
   const transcript = Array.from(e.results)
