@@ -36,29 +36,23 @@ body {
   border-color: transparent #efe4e4;
 }
 
-.highlight {
-  transition: all 0.2s;
-  border-bottom: 2px solid white;
-  position: absolute;
-  top: 0;
-  background: blue;
-  left: 0;
-  z-index: -1;
-  border-radius: 20px;
-  display: block;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
 .weatherBox {
   max-width: 700px;
   height: 300px;
   background-color: blue;
   margin-left: 25%;
   position: relative;
-  top: -150px;
+  top: 0;
   border: 2px solid black;
   border-radius: 5px;
   box-shadow: 10px 10px dimgrey;
+}
+
+.fixed-box .weatherBox {
+  position: fixed;
+  /* when element is fixed, it doesn't "exist" on page. Doesn't take space */
+  box-shadow: 0 5px rgba(0, 0, 0, 0.01);
+  background-color: blue;
 }
 
 /* .weatherBoxActive {
@@ -73,4 +67,5 @@ body {
 
 .row {
   grid-row-start: auto;
+  flex: 1;
 }

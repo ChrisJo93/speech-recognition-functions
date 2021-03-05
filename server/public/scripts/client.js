@@ -1,13 +1,17 @@
+// Enable speech Recognition api
 window.SpeechRecognition =
-  //set variable to SpeechReg or webkitSpeech depending on browser
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
+//New instance of Speech Recognition
 const recognition = new SpeechRecognition();
+//Providing transcript text during speech detection
 recognition.interimResults = true;
 
 let p = document.createElement('p');
+let city = 'Shreveport';
 const words = document.querySelector('.words');
 const weatherBox = document.querySelector('.weatherBox');
+const topOfWeatherBox = weatherBox.offsetTop;
 
 recognition.addEventListener('result', (e) => {
   //looping through all words in transcript
@@ -20,16 +24,12 @@ recognition.addEventListener('result', (e) => {
 
   //checking isFinal. Prevents function running multiple times
   if (transcript.includes('date') && e.results[0].isFinal) {
-    //call date
     getDate();
   }
   if (transcript.includes('weather') && e.results[0].isFinal) {
-    //call weather
     getWeather();
   }
-
   if (transcript.includes('location') && e.results[0].isFinal) {
-    //call location
     getLocation();
   }
 
@@ -44,6 +44,19 @@ recognition.addEventListener('result', (e) => {
 function getDate() {
   console.log(new Date().toString(), 'string');
   p.textContent = new Date().toString();
+}
+
+// -------- **START WEATHER FUNCTIONS** --------- //
+
+function weatherBoxPosition() {
+  console.log(window.scrollY, topOfWeatherBox);
+  if (window.scrollY >= topOfWeatherBox) {
+    document.body.style.paddingTop = weatherBox.offSetHeight + 'px';
+    document.body.classList.add('fixed-box');
+  } else {
+    document.body.style.paddingTop = 0;
+    document.body.classList.remove('fixed-box');
+  }
 }
 
 function weatherRemover() {
@@ -67,7 +80,6 @@ function getWeather() {
   setTimeout(weatherRemover, 10000);
 }
 
-let city = 'Shreveport';
 function getWeatherData(key) {
   //returning response from weather api call.
   return axios
@@ -82,11 +94,14 @@ function getWeatherData(key) {
     });
 }
 
+// -------- **END WEATHER FUNCTIONS** --------- //
+
 function getLocation() {
   //need to implement geolocation. Data will be sent to weather api also
   console.log(`I'm here`);
 }
 
 recognition.addEventListener('end', recognition.start);
+window.addEventListener('scroll', weatherBoxPosition);
 
 recognition.start();
